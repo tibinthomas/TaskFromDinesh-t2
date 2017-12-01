@@ -1,0 +1,7 @@
+<select (change)="onSelectingDist()" [(ngModel)]="selectedDistIndex" >
+    <option >--Select Dist--</option>
+    <option *ngFor="let dist of distToDisplay; let i = index" [value]="i">
+      {{ dist }}
+    </option>
+</select>
+  

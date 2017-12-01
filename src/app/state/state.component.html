@@ -1,0 +1,6 @@
+<select [(ngModel)]="selectedStateIndex" (change)="onSelectingState()">
+  <option>--Select State--</option>
+  <option *ngFor="let state of statesToDisplay; let i = index" [value]="i">
+    {{ state }}
+  </option>
+</select>
