@@ -8,7 +8,7 @@ import { SimpleChanges } from '@angular/core/src/metadata/lifecycle_hooks';
   templateUrl: './dist.component.html',
   styleUrls: ['./dist.component.css']
 })
-export class DistComponent implements OnChanges, OnInit {
+export class DistComponent implements OnInit {
 
   constructor(private data: Data) { }
 
@@ -16,19 +16,12 @@ export class DistComponent implements OnChanges, OnInit {
   selectedDistIndex: number;
 
   ngOnInit() {
-    this.distToDisplay = Object.values(this.data.fakeSDC.dist[this.data.selectedDistrictIndex])[0];
+    this.data.selectedStateIndex.subscribe((index) => { this.selectedDistIndex = index;
+      this.distToDisplay = Object.values(this.data.fakeSDC.dist[this.selectedDistIndex])[0];
+    });
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    const change = changes.distToDisplay;
-    const distToDisplay = change.currentValue;
-  }
-
-  onClickingDropdown(distArrayFromFormEvent) {
-    this.distToDisplay = distArrayFromFormEvent;
-  }
-
-  onSelectingDist() {
-    this.data.selectedDistrictIndex = this.selectedDistIndex;
+  changeInselectedDistrictIndex() {
+    this.data.changeInselectedDistrictIndex(this.selectedDistIndex);
   }
 }

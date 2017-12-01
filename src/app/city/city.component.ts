@@ -14,6 +14,7 @@ export class CityComponent implements OnInit, OnChanges {
   cityToDisplay: string[] = [];
 
   ngOnInit() {
+    this.data.
     this.cityToDisplay = Object.values(this.data.fakeSDC.city[this.data.selectedDistrictIndex])[0];
   }
 

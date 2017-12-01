@@ -1,4 +1,4 @@
-<select [(ngModel)]="selectedStateIndex" (change)="onSelectingState()">
+<select [(ngModel)]="selectedStateIndex" (change)="changeInselectedStateIndex()">
   <option>--Select State--</option>
   <option *ngFor="let state of statesToDisplay; let i = index" [value]="i">
     {{ state }}
