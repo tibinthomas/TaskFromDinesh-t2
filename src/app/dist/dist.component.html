@@ -1,6 +1,4 @@
 <select (change)="changeInselectedDistrictIndex()" [(ngModel)]="selectedDistIndex" >
-    <option *ngFor="let dist of distToDisplay; let i = index" [value]="dist">
-      {{ dist }}
-    </option>
+    <option *ngFor="let dist of distToDisplay; let i = index" [value]="dist">{{ dist }}</option>
 </select>
   

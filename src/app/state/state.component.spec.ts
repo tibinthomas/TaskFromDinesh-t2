@@ -25,12 +25,13 @@ describe('StateComponent', () => {
 
     fixtureS = TestBed.createComponent(StateComponent);
     stateComponent = fixtureS.componentInstance;
+
     fixtureD = TestBed.createComponent(DistComponent);
     distComponent = fixtureD.componentInstance;
+
     fixtureC = TestBed.createComponent(CityComponent);
     cityComponent = fixtureC.componentInstance;
 
-    fixtureS.detectChanges();
     stateComponent.ngOnInit();
     distComponent.ngOnInit();
     cityComponent.ngOnInit();
@@ -50,15 +51,23 @@ describe('StateComponent', () => {
   });
 
   it('state dropdown should load all the state', () => {
-    expect(dataService.selectedDistrictIndex).toBeTruthy();
+    const elementS = fixtureS.nativeElement;
+    stateComponent.statesToDisplay = ['A'];
+    fixtureS.detectChanges();
+    expect(elementS.querySelector('option').innerHTML).toBe('A');
   });
 
   it('dist dropdown should load only the dist in the selected state', () => {
-    expect(dataService.selectedDistrictIndex).toBeTruthy();
+    const elementD = fixtureD.nativeElement;
+    fixtureD.detectChanges();
+    expect(elementD.querySelector('option').innerHTML).toBe('Aa');
+    distComponent.distToDisplay = ['Aa'];
   });
 
-  it('city dropdown should load only the city in the selected dist', () => {
-    expect(dataService.selectedDistrictIndex).toBeTruthy();
+  xit('city dropdown should load only the city in the selected dist', () => {
+    const elementC = fixtureC.nativeElement;
+    fixtureC.detectChanges();
+    expect(elementC.querySelector('option').innerHTML).toBe('Aa1');
   });
 
 });
