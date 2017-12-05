@@ -12,11 +12,13 @@ export class CityComponent implements OnInit, OnChanges {
   constructor(private data: Data) { }
 
   cityToDisplay: string[] = [];
-  selectedDistrictIndex: number;
+  selectedDistrictIndex: string;
 
   ngOnInit() {
     this.data.selectedDistrictIndex.subscribe((index) => { this.selectedDistrictIndex = index;
-      this.cityToDisplay = Object.values(this.data.fakeSDC.dist[this.selectedDistrictIndex])[0];
+      console.log(this.selectedDistrictIndex);
+      // tslint:disable-next-line:max-line-length
+      this.data.fakeSDC.city.map(x => x[this.selectedDistrictIndex] !== undefined ? this.cityToDisplay = x[this.selectedDistrictIndex] : null);
     });
   }
 
