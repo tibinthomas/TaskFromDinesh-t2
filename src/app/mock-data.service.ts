@@ -14,13 +14,13 @@ export class Data {
 
 
 public selectedStateIndex = new BehaviorSubject<number>(0);
-public selectedDistrictIndex = new BehaviorSubject<number>(0);
+public selectedDistrictIndex = new BehaviorSubject<string>('*');
 
 changeInselectedStateIndex(index: number) {
   this.selectedStateIndex.next(index);
 }
 
-changeInselectedDistrictIndex(index: number) {
+changeInselectedDistrictIndex(index: string) {
   this.selectedDistrictIndex.next(index);
 }
 

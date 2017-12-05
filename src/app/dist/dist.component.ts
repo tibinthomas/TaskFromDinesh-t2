@@ -13,7 +13,7 @@ export class DistComponent implements OnInit {
   constructor(private data: Data) { }
 
   distToDisplay: string[] = [];
-  selectedDistIndex: number;
+  selectedDistIndex: any;
 
   ngOnInit() {
     this.data.selectedStateIndex.subscribe((index) => { this.selectedDistIndex = index;
